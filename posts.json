@@ -1,0 +1,67 @@
+{
+    "data": [
+        {
+            "id": 3827,
+            "title": "Last Post",
+            "body": "New Post",
+            "author": {
+                "id": 2117,
+                "profile_image": "https://tarmeezacademy.com/images/users/cK8TrcXEDMZXCtb.jpg",
+                "is_fake": false,
+                "username": "zika",
+                "name": "zika",
+                "email": "zika22@gmail.com",
+                "email_verified_at": null,
+                "remember_token": null,
+                "created_at": "2025-05-14T20:37:51.000000Z",
+                "updated_at": "2025-05-14T20:37:51.000000Z"
+            },
+            "image": "https://tarmeezacademy.com/images/posts/yY0T7xoZyq2YpDW.jpg",
+            "tags": [],
+            "created_at": "59 minutes ago",
+            "comments_count": 0
+        },
+        {
+            "id": 3826,
+            "title": "Y",
+            "body": "U",
+            "author": {
+                "id": 1642,
+                "profile_image": "https://cdn-icons-png.flaticon.com/512/219/219986.png",
+                "is_fake": false,
+                "username": "Ahmad36",
+                "name": "Ahmad",
+                "email": "shu@gmail.com",
+                "email_verified_at": null,
+                "remember_token": null,
+                "created_at": "2025-04-21T23:24:36.000000Z",
+                "updated_at": "2025-04-21T23:24:36.000000Z"
+            },
+            "image": "https://tarmeezacademy.com/images/posts/CCiqVo08NvRABZU.jpg",
+            "tags": [],
+            "created_at": "2 hours ago",
+            "comments_count": 1
+        },
+        {
+            "id": 3825,
+            "title": "H",
+            "body": "H",
+            "author": {
+                "id": 1642,
+                "profile_image": "https://tarmeezacademy.com/images/users/4MoWTckQH2IOyD6.jpg",
+                "is_fake": false,
+                "username": "Ahmad36",
+                "name": "Ahmad",
+                "email": "shu@gmail.com",
+                "email_verified_at": null,
+                "remember_token": null,
+                "created_at": "2025-04-21T23:24:36.000000Z",
+                "updated_at": "2025-04-21T23:24:36.000000Z"
+            },
+            "image": "https://tarmeezacademy.com/images/posts/Yu5knza1UjQ75dv.jpg",
+            "tags": [],
+            "created_at": "3 hours ago",
+            "comments_count": 0
+        }
+    ]
+}

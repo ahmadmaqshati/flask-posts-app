@@ -1,0 +1,482 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eee8ff;
+}
+
+.x {
+    width: 100% !important;
+    max-width: 1000px !important;
+    padding: 1rem;
+}
+
+
+
+/*=======
+ top nanv
+ ========
+*/
+
+.navbar {
+    background-color: #f8f9fa;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem;
+}
+
+.navbar-links .active {
+    font-weight: bold;
+}
+
+
+
+.navbar a:hover {
+    color: #19637c;
+}
+
+
+
+.navbar-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+}
+
+
+
+
+
+.auth-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.auth-buttons button {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid green;
+    background: transparent;
+    color: green;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Responsive */
+
+/* @media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-right {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .auth-buttons {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .auth-buttons.show {
+        display: flex;
+    }
+
+    .auth-buttons button {
+        width: auto;
+        min-width: 100px;
+    }
+} */
+
+
+
+
+/*=====
+  Post
+  =====
+*/
+.navbar-container,
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+
+
+.col-9 {
+    width: 100%;
+
+}
+
+
+
+.post-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    border: 1px solid #ddd;
+    padding: 0;
+    width: 100%;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: rgb(249, 247, 251);
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+
+
+
+
+.post-body {
+    padding: 1rem;
+}
+
+.post-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.post-time {
+    color: #999;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.post-title {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.post-text {
+    line-height: 1.5;
+    color: #333;
+}
+
+.post-date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.icon {
+    color: #6b7280;
+    /* اللون الرمادي - مكافئ لـ text-gray-500 */
+    margin-top: 0.25rem;
+    /* مكافئ لـ mt-1 */
+    width: 1em;
+    height: 1em;
+}
+
+hr {
+    margin: 1rem 0;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Responsive design for smaller screens */
+
+/* @media (max-width: 768px) {
+    .col-9 {
+        width: 100%;
+    }
+
+    .container {
+        max-width: 100%;
+       
+    }
+
+    .post-card {
+        margin-bottom: 1rem;
+    }
+} */
+
+
+/* ====modal====== */
+
+#modal {
+    display: none;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+
+#sighn-modal {
+    display: none !important;
+    background-color: #000;
+}
+
+.background-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+#signupModal {
+    display: none;
+}
+
+.modal-container {
+    position: relative;
+    width: 400px;
+    background: linear-gradient(to bottom right, #42ddd6, #0c1b27);
+    border-radius: 10px;
+    padding: 2rem;
+    z-index: 100;
+    background-color: white;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.btn:hover {
+    background-color: #3182ce;
+    transform: scale(1.05);
+}
+
+.close-btn {
+    margin-top: 1rem;
+    color: #c53030;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.close-btn:hover {
+    color: #2b6cb0;
+}
+
+
+#add-btn {
+    color: white;
+    background-color: #007bff;
+    border-radius: 50%;
+    text-align: center;
+    position: fixed;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#add-btn:hover {
+    background-color: #0056b3;
+    /* لون أغمق عند التحويم */
+    transform: scale(1.1);
+    /* تكبير الزر قليلاً */
+    box-shadow: 0 7px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#login-btn,
+#signup-btn {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#login-btn:hover {
+    background-color: #0056b3;
+    /* لون أغمق عند التحويم */
+    transform: scale(1.1);
+    /* تكبير الزر قليلاً */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+#signup-btn:hover {
+    background-color: #0056b3;
+    /* لون أغمق عند التحويم */
+    transform: scale(1.1);
+    /* تكبير الزر قليلاً */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-right {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .auth-buttons {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .auth-buttons.show {
+        display: flex;
+    }
+
+    .auth-buttons button {
+        width: auto;
+        min-width: 100px;
+    }
+
+
+
+
+
+    .col-9 {
+        width: 100%;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .post-card {
+        margin-bottom: 1rem;
+    }
+}
