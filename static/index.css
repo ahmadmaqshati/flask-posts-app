@@ -85,10 +85,6 @@ body {
 
 }
 
-
-
-
-
 .auth-buttons {
     display: flex;
     gap: 0.5rem;
@@ -117,42 +113,10 @@ body {
     gap: 0.5rem;
 }
 
-/* Responsive */
 
-/* @media (max-width: 768px) {
-    .navbar-toggle {
-        display: block;
-    }
-
-    .navbar-right {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .auth-buttons {
-        display: none;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-    }
-
-    .auth-buttons.show {
-        display: flex;
-    }
-
-    .auth-buttons button {
-        width: auto;
-        min-width: 100px;
-    }
-} */
-
-
-
-
-/*=====
-  Post
-  =====
+/*==========
+  Post-Card
+  ==========
 */
 .navbar-container,
 .container {
@@ -168,8 +132,6 @@ body {
     width: 100%;
 
 }
-
-
 
 .post-card {
     background-color: #fff;
@@ -236,9 +198,7 @@ body {
 
 .icon {
     color: #6b7280;
-    /* اللون الرمادي - مكافئ لـ text-gray-500 */
     margin-top: 0.25rem;
-    /* مكافئ لـ mt-1 */
     width: 1em;
     height: 1em;
 }
@@ -254,23 +214,6 @@ hr {
     color: #555;
     font-size: 0.9rem;
 }
-
-/* Responsive design for smaller screens */
-
-/* @media (max-width: 768px) {
-    .col-9 {
-        width: 100%;
-    }
-
-    .container {
-        max-width: 100%;
-       
-    }
-
-    .post-card {
-        margin-bottom: 1rem;
-    }
-} */
 
 
 /* ====modal====== */

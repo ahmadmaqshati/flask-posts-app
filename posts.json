@@ -1,67 +1,119 @@
-{
-    "data": [
-        {
-            "id": 3827,
-            "title": "Last Post",
-            "body": "New Post",
-            "author": {
-                "id": 2117,
-                "profile_image": "https://tarmeezacademy.com/images/users/cK8TrcXEDMZXCtb.jpg",
-                "is_fake": false,
-                "username": "zika",
-                "name": "zika",
-                "email": "zika22@gmail.com",
-                "email_verified_at": null,
-                "remember_token": null,
-                "created_at": "2025-05-14T20:37:51.000000Z",
-                "updated_at": "2025-05-14T20:37:51.000000Z"
-            },
-            "image": "https://tarmeezacademy.com/images/posts/yY0T7xoZyq2YpDW.jpg",
-            "tags": [],
-            "created_at": "59 minutes ago",
-            "comments_count": 0
-        },
-        {
-            "id": 3826,
-            "title": "Y",
-            "body": "U",
-            "author": {
-                "id": 1642,
-                "profile_image": "https://cdn-icons-png.flaticon.com/512/219/219986.png",
-                "is_fake": false,
-                "username": "Ahmad36",
-                "name": "Ahmad",
-                "email": "shu@gmail.com",
-                "email_verified_at": null,
-                "remember_token": null,
-                "created_at": "2025-04-21T23:24:36.000000Z",
-                "updated_at": "2025-04-21T23:24:36.000000Z"
-            },
-            "image": "https://tarmeezacademy.com/images/posts/CCiqVo08NvRABZU.jpg",
-            "tags": [],
-            "created_at": "2 hours ago",
-            "comments_count": 1
-        },
-        {
-            "id": 3825,
-            "title": "H",
-            "body": "H",
-            "author": {
-                "id": 1642,
-                "profile_image": "https://tarmeezacademy.com/images/users/4MoWTckQH2IOyD6.jpg",
-                "is_fake": false,
-                "username": "Ahmad36",
-                "name": "Ahmad",
-                "email": "shu@gmail.com",
-                "email_verified_at": null,
-                "remember_token": null,
-                "created_at": "2025-04-21T23:24:36.000000Z",
-                "updated_at": "2025-04-21T23:24:36.000000Z"
-            },
-            "image": "https://tarmeezacademy.com/images/posts/Yu5knza1UjQ75dv.jpg",
-            "tags": [],
-            "created_at": "3 hours ago",
-            "comments_count": 0
-        }
-    ]
-}
+[
+    {
+        "username": "بييب",
+        "title": "بيببي",
+        "body": "بييبيب",
+        "image": "",
+        "user_image": "",
+        "comments_count": 0,
+        "date": "17/05/2025 - 13:06"
+    },
+    {
+        "username": "Ali",
+        "title": "sssa",
+        "body": "sasasa",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0gBFQUzHGPmzWRpMe2CDA0UjUnEAYSsTJsQ&s",
+        "user_image": "https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg",
+        "comments_count": 0,
+        "date": "17/05/2025 - 12:56"
+    },
+    {
+        "username": "",
+        "title": "sdsdds",
+        "body": "ddsds",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0gBFQUzHGPmzWRpMe2CDA0UjUnEAYSsTJsQ&s",
+        "user_image": "https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg",
+        "comments_count": 0,
+        "date": "17/05/2025 - 12:53"
+    },
+    {
+        "username": "",
+        "title": "sasasa",
+        "body": "sassa",
+        "image": "",
+        "user_image": "https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg",
+        "comments_count": 0,
+        "date": "17/05/2025 - 12:51"
+    },
+    {
+        "username": "",
+        "title": "ddsdds",
+        "body": "",
+        "image": "",
+        "user_image": "",
+        "comments_count": 0,
+        "date": "17/05/2025 - 12:50"
+    },
+    {
+        "username": "ahmad",
+        "user_image": "https://cdn-icons-png.flaticon.com/512/219/219986.png",
+        "image": "https://media.istockphoto.com/id/165578655/photo/silhouette-of-a-girl-walking-over-the-beach-at-sunset.jpg?s=612x612&w=0&k=20&c=ZNV74AgqoMwOf0yfmbTnDDt5BIDUb7AZDgQJjU-yha8=",
+        "date": "just now",
+        "title": "My first post",
+        "body": "This is my first post!",
+        "comments_count": 2
+    },
+    {
+        "username": "ali",
+        "user_image": "https://example.com/user2.png",
+        "image": "https://www.k12digest.com/wp-content/uploads/2024/03/1-3-550x330.jpg",
+        "date": "10 min ago",
+        "title": "Sunset 🌇",
+        "body": "Beautiful view",
+        "comments_count": 5
+    },
+    {
+        "username": "hasan",
+        "user_image": "https://example.com/user2.png",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLSY9QSR_rZ8AhtzsCn77ntJYF737nLwooAg&s",
+        "date": "10 min ago",
+        "title": "Sunset 🌇",
+        "body": "Beautiful view",
+        "comments_count": 5
+    },
+    {
+        "username": "hasan",
+        "user_image": "https://example.com/user2.png",
+        "image": "https://cdn.img.sarabic.ae/img/103348/26/1033482628_0:125:3071:1861_1920x0_80_0_0_9a80046256c8ffc1989a271f78d53b91.jpg",
+        "date": "10 min ago",
+        "title": "Sunset 🌇",
+        "body": "Beautiful view",
+        "comments_count": 5
+    },
+    {
+        "username": "hasan",
+        "user_image": "https://example.com/user2.png",
+        "image": "https://www.k12digest.com/wp-content/uploads/2024/03/1-3-550x330.jpg",
+        "date": "10 min ago",
+        "title": "Sunset 🌇",
+        "body": "Beautiful view",
+        "comments_count": 5
+    },
+    {
+        "username": "hasan",
+        "user_image": "https://example.com/user2.png",
+        "image": "https://www.k12digest.com/wp-content/uploads/2024/03/1-3-550x330.jpg",
+        "date": "10 min ago",
+        "title": "Sunset 🌇",
+        "body": "Beautiful view",
+        "comments_count": 5
+    },
+    {
+        "username": "mohammed",
+        "user_image": "https://example.com/user4.png",
+        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+        "date": "30 min ago",
+        "title": "Ocean vibes 🌊",
+        "body": "Relaxing by the sea",
+        "comments_count": 7
+    },
+    {
+        "username": "laila",
+        "user_image": "https://example.com/user5.png",
+        "image": "https://images.unsplash.com/photo-1496389392040-1e6f02b49d90",
+        "date": "1 hour ago",
+        "title": "City Lights ✨",
+        "body": "City at night is magical!",
+        "comments_count": 4
+    }
+]
