@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #eee8ff;
+        }
+
+
+        .user-main-info {
+            margin-top: 50px;
+            margin-bottom: 66px;
+        }
+
+        .user-info-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .user-profile-card {
+            background-color: slateblue;
+            height: 200px;
+            width: 75%;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-data-row {
+            display: flex;
+            width: 100%;
+        }
+
+        .user-image {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .user-image img {
+            border-radius: 50%;
+            height: 125px;
+            width: 125px;
+        }
+
+        .user-text-info {
+            color: white;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .user-posts-comments {
+            color: white;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .post-count,
+        .comments-count {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-posts {
+            margin-top: 2rem;
+        }
+
+        .user-posts-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .posts-container {
+            width: 75%;
+        }
+
+        .post-card {
+            background-color: #252525;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .user-icon {
+            border-radius: 50%;
+            border: 1px solid #fff;
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+
+        .edit-btn,
+        .delete-btn {
+            margin-left: auto;
+            margin-right: 0.5rem;
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 0.2rem 0.5rem;
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            background-color: red;
+        }
+
+        .post-body {
+            padding: 1rem;
+        }
+
+        .post-image {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-time {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .post-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MAIN CONTENT -->
+
+    <!-- user-main-info -->
+    <div class="user-main-info">
+        <div class="user-info-wrapper">
+            <div class="user-profile-card">
+                <div id="AllUserData" class="user-data-row">
+
+                    <!-- user-image -->
+                    <div id="user-image-profile" class="user-image">
+                        <img id="user-img" src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg"
+                            alt="">
+                    </div>
+                    <!-- //user-image // -->
+
+                    <!-- user-info -->
+                    <div class="user-text-info">
+                        <h5 id="user-email">yarob.hm@gmail.com</h5>
+                        <h5 id="user-username">Yarob</h5>
+                        <h5 id="name">Yarob99</h5>
+                    </div>
+                    <!-- //user-info// -->
+
+                    <!-- Posts&&Comments-count -->
+                    <div class="user-posts-comments">
+                        <div class="post-count">
+                            <h1 id="user-posts-count">13</h1>
+                            <h1>:</h1>
+                            Posts
+                        </div>
+
+                        <div class="comments-count">
+                            <h1 id="user-comments-count">13</h1>
+                            <h1>:</h1>
+                            Comments
+                        </div>
+
+                    </div>
+                    <!-- //Posts&&Comments-count //-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //user-main-info// -->
+
+    <!-- user-posts -->
+    <div class="user-posts">
+        <div class="user-posts-wrapper">
+            <div class="posts-container">
+
+                <!-- Post1 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <img class="user-icon"
+                            src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg" alt="">
+                        <b class="email">@yarhmm</b>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+
+                    <div class="post-body">
+                        <img class="post-image"
+                            src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg" alt="">
+                        <h6 class="post-time">2 min ago</h6>
+                        <h4 class="title">Hello World</h4>
+                        <p class="body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit illum
+                            voluptatum
+                            perferendis facilis fuga ducimus? Accusamus, soluta aliquid dignissimos labore consequatur
+                            excepturi dolor
+                            quia harum, provident iure accusantium porro a.</p>
+                        <hr>
+                        <div class="post-footer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="icon" viewBox="0 0 16 16">
+                                <path
+                                    d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                            </svg>
+                            <span class="comments">(3) Comments</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- //Post1 -->
+
+            </div>
+        </div>
+    </div>
+    <!-- //user-posts// -->
+
+</body>
+
+</html>

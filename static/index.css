@@ -215,6 +215,43 @@ hr {
     font-size: 0.9rem;
 }
 
+.delete-edit-btns {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.edit-post,
+.delete-post {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.edit-post {
+    background-color: #6c757d;
+    /* رمادي */
+    color: white;
+}
+
+.delete-post {
+    background-color: #dc3545;
+    /* أحمر */
+    color: white;
+}
+
+.edit-post:hover {
+    background-color: #5a6268;
+}
+
+.delete-post:hover {
+    background-color: #c82333;
+}
+
+
 
 /* ====modal====== */
 
@@ -232,7 +269,6 @@ hr {
     z-index: 50;
 }
 
-
 #sighn-modal {
     display: none !important;
     background-color: #000;
@@ -242,9 +278,14 @@ hr {
     position: absolute;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.7);
-
 }
 
+/* .delete-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+ */
 #signupModal {
     display: none;
 }
@@ -336,20 +377,93 @@ hr {
 
 #add-btn:hover {
     background-color: #0056b3;
-    /* لون أغمق عند التحويم */
     transform: scale(1.1);
-    /* تكبير الزر قليلاً */
     box-shadow: 0 7px 12px rgba(0, 0, 0, 0.3);
 }
 
 
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
 
+.modal-dialog {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
 
+.delete-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+}
 
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
 
+.btn-close {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: #888;
+}
 
+.modal-footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: start;
+    margin-top: 15px;
+    gap: 5px;
+}
 
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #000;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #da0808;
+}
 
 
 
@@ -372,9 +486,7 @@ hr {
 
 #signup-btn:hover {
     background-color: #0056b3;
-    /* لون أغمق عند التحويم */
     transform: scale(1.1);
-    /* تكبير الزر قليلاً */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     color: #fff;
 }

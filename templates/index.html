@@ -12,7 +12,7 @@
 <body>
 
     <!-- LOGIN MODAL -->
-    <div class="modal-overlay" id="modal">
+    <!--  <div class="modal-overlay" id="modal">
 
         <div class="background-overlay" onclick="toggleModal()"></div>
 
@@ -36,7 +36,38 @@
 
             <div class="close-btn" onclick="toggleModal()">Close</div>
         </div>
+    </div> -->
+
+
+
+
+
+
+    <!-- LOGIN MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="background-overlay" onclick="toggleModal()"></div>
+
+        <div class="modal-container">
+            <h2 class="modal-title">Login</h2>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">UserName :</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" name="password" required />
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+            </form>
+
+            <div class="close-btn" onclick="toggleModal()">Close</div>
+        </div>
     </div>
+
     <!--// LOGIN MODAL //-->
 
     <!-- Sign up MODAL -->
@@ -68,7 +99,7 @@
                     <input type="password" name="passwordInput" />
                 </div>
 
-                <button type="submit" class="btn">Signup</button>
+                <button class="btn">Signup</button>
             </form>
 
             <button onclick="toggleSignModal()" class="close-btn">Close</button><!-- onclick="toggleSignupModal()" -->
@@ -107,6 +138,28 @@
         </div>
     </div>
 
+    <!-- Delete Modal -->
+    <div id="delete-post-modal" class="modal" onclick="openModal()">
+        <div class="delete-overlay" onclick="closeModal()"></div>
+        <div class="delete-overlay" onclick="closeModal()"></div>
+        <div class="modal-dialog" onclick="closeModal()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title">Are you sure you want to delete the post?
+                        <span id="delete-post-title"></span>
+                    </h1>
+                    <button type="button" class="btn-close" onclick="closeModal()">×</button>
+                    <input type="hidden" id="delete-post-id-input" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+                    <button id="post-modal-submit-btn" type="button" class="btn btn-danger"
+                        onclick="confirmPostDelete()">Yes, Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- ADD POST BUTTON -->
     <div id="add-btn" onclick="handleAddBtnClicked()">+</div>
@@ -121,7 +174,11 @@
                     <a href="home.html" class="navbar-brand">Tarmeez</a>
                     <ul class="navbar-links">
                         <li><a href="home.html" class="active">Home</a></li>
-                        <li><a href="#" onclick="profileClicked()">Profile</a></li>
+                        <!-- <li><a onclick="profileClicked()">Profile</a></li> -->
+                        <li><a href="/profile">Profile</a></li>
+
+
+
                     </ul>
                 </div>
 
@@ -154,26 +211,31 @@
                 posts.forEach(post => {
                     const postCard = document.createElement('div');
                     postCard.className = 'post-card';
+                    postCard.id = `post-${post.id}`; // ✅ تم إضافة ID لكل منشور
 
                     postCard.innerHTML = `
-                        <div class="post-header">
-                            <img class="profile-img" src="${post.user_image}" alt="">
-                            <b>@${post.username}</b>
-                        </div>
-
-                        <div class="post-body">
-                            <img class="post-img" src="${post.image}" alt="">
-                            <div class="post-date">
-                                <h6 class="post-time">${post.date}</h6>
-                            </div>
-                            <h5 class="post-title">${post.title}</h5>
-                            <p class="post-text">${post.body}</p>
-                            <hr>
-                            <div class="post-footer">
-                                <span>(${post.comments_count}) Comments</span>
-                            </div>
-                        </div>
-                    `;
+    <div class="post-header">
+        <img class="profile-img" src="${post.user_image}" alt="">
+        <b>@${post.username}</b>
+        <div class='delete-edit-btns'>
+          <button class="edit-post">Edit</button>
+          <button class="delete-post" onclick='openModal(${post.id}, "${post.title}")'>Delete</button>
+        </div>
+    </div>
+    
+    <div class="post-body">
+        <img class="post-img" src="${post.image}" alt="">
+        <div class="post-date">
+            <h6 class="post-time">${post.date}</h6>
+        </div>
+        <h5 class="post-title">${post.title}</h5>
+        <p class="post-text">${post.body}</p>
+        <hr>
+        <div class="post-footer">
+            <span>(${post.comments_count}) Comments</span>
+        </div>
+    </div>
+    `;
 
                     container.appendChild(postCard);
                 });
@@ -183,7 +245,66 @@
             });
     </script>
 
+
+
+
+    <script>
+
+        // Add an event listener to the Login Form to handle submission
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission to avoid page reload
+
+            // Retrieve the username and password values, removing leading/trailing spaces
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Send login request to the server using the fetch API
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', // Ensure the request body is JSON format
+                },
+                body: JSON.stringify({ username, password }) // Convert user credentials to JSON format
+            })
+                .then(response => response.json()) // Parse the response as JSON
+                .then(data => {
+                    if (data.status === 'success') { // Check if login was successful
+                        document.getElementById('username').value = '';
+                        document.getElementById('password').value = '';
+
+                        // Store user details in localStorage for session persistence
+                        localStorage.setItem('loggedInUser', JSON.stringify(data.user));
+
+                        alert('تم تسجيل الدخول بنجاح');
+
+                        // Reload the page to reflect the login state
+                        location.reload();
+                    } else {
+                        // Display an error message if login failed
+                        alert(data.message || 'خطأ في تسجيل الدخول');
+                    }
+                })
+                .catch(error => {
+                    alert('حدث خطأ في تسجيل الدخول');
+                });
+        });
+
+
+    </script>
+
+
+
+
+
+
+
+
+
     <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='delete.js') }}"></script>
+    <script src="{{ url_for('static', filename='signup.js') }}"></script>
+    <script src="{{ url_for('static', filename='submitPost.js') }}"></script>
+    <script src="{{ url_for('static', filename='auth.js') }}"></script>
 
 
 
@@ -191,9 +312,5 @@
 
 
 </body>
-
-
-
-
 
 </html>
