@@ -206,6 +206,15 @@
     </div>
 
     <script>
+        const loggedInUser = localStorage.getItem("loggedInUser");
+
+        // إخفاء زر الإضافة إذا لم يكن المستخدم مسجلاً الدخول
+        if (!loggedInUser) {
+            document.getElementById("add-btn").style.display = "none";
+        }
+
+
+
         fetch('/posts')
             .then(response => response.json())
             .then(posts => {
@@ -216,14 +225,35 @@
                     postCard.className = 'post-card';
                     postCard.id = `post-${post.id}`; // ✅ تم إضافة ID لكل منشور
 
+
+                    // استخراج اسم المستخدم الحالي (إن وجد)
+                    let currentUsername = null;
+                    if (loggedInUser) {
+                        currentUsername = JSON.parse(loggedInUser).username;
+                    }
+
+                    // السماح بالتعديل فقط إذا المستخدم مسجّل دخوله وهو صاحب المنشور
+                    const canEdit = currentUsername && (currentUsername === post.username);
+
+
+
+
+
+
+                    /*  // فقط أظهر أزرار التعديل والحذف إذا كان المستخدم هو صاحب المنشور
+                     const user = JSON.parse(loggedInUser || '{}');
+                     const canEdit = user.username === post.username; */
+
+
+
                     postCard.innerHTML = `
     <div class="post-header">
         <img class="profile-img" src="${post.user_image}" alt="">
         <b>@${post.username}</b>
-        <div class='delete-edit-btns'>
-          <button class="edit-post">Edit</button>
-          <button class="delete-post" onclick='openModal(${post.id}, "${post.title}")'>Delete</button>
-        </div>
+       <div class='delete-edit-btns'>
+        ${canEdit ? `<button class="edit-post">Edit</button>
+                     <button class="delete-post" onclick='openModal(${post.id}, "${post.title}")'>Delete</button>` : ""}
+    </div>
     </div>
     
     <div class="post-body">
