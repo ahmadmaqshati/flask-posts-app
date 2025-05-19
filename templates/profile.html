@@ -8,7 +8,11 @@
     <style>
         body {
             background-color: #eee8ff;
+            margin: 0;
+            font-family: sans-serif;
         }
+
+
 
 
         .user-main-info {
@@ -24,19 +28,24 @@
 
         .user-profile-card {
             background-color: slateblue;
-            height: 200px;
-            width: 75%;
+            height: auto;
+            width: 65%;
             display: flex;
             align-items: center;
+            border-radius: 12px;
+            padding: 10px 0;
         }
+
 
         .user-data-row {
             display: flex;
+            flex-wrap: wrap;
             width: 100%;
+            gap: 1rem;
         }
 
         .user-image {
-            width: 20%;
+            flex: 1 1 120px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -46,19 +55,21 @@
             border-radius: 50%;
             height: 125px;
             width: 125px;
+            object-fit: cover;
         }
 
         .user-text-info {
             color: white;
-            width: 30%;
+            flex: 2 1 200px;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            font-size: 1.2rem;
         }
 
         .user-posts-comments {
             color: white;
-            width: 50%;
+            flex: 2 1 200px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -82,20 +93,22 @@
         }
 
         .posts-container {
-            width: 75%;
+            width: 65%;
         }
 
         .post-card {
             background-color: #252525;
             margin-bottom: 1rem;
             color: white;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .post-header {
             display: flex;
             align-items: center;
             padding: 1rem;
-            position: relative;
+            gap: 1rem;
         }
 
         .user-icon {
@@ -103,18 +116,17 @@
             border: 1px solid #fff;
             width: 32px;
             height: 32px;
-            margin-right: 10px;
         }
 
         .edit-btn,
         .delete-btn {
-            margin-left: auto;
-            margin-right: 0.5rem;
             background-color: #444;
             color: white;
             border: none;
-            padding: 0.2rem 0.5rem;
+            padding: 0.3rem 0.6rem;
             cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.8rem;
         }
 
         .delete-btn {
@@ -128,6 +140,7 @@
         .post-image {
             width: 100%;
             margin-bottom: 0.5rem;
+            border-radius: 6px;
         }
 
         .post-time {
@@ -139,8 +152,84 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        /* @media (max-width: 768px) {
+            .user-data-row {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .user-profile-card {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .user-text-info,
+            .user-posts-comments {
+                width: 100%;
+                flex: unset;
+            }
+
+            .post-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .edit-btn,
+            .delete-btn {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .user-image img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .user-text-info {
+                font-size: 1rem;
+            }
+
+            .edit-btn,
+            .delete-btn {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.4rem;
+            }
+
+            .post-body {
+                font-size: 0.9rem;
+            }
+        } */
+
+
+        @media (max-width: 768px) {
+
+            .post-count,
+            .comments-count {
+                margin-left: 17px;
+            }
+        }
+
+        @media (max-width: 427px) {
+            .user-text-info {
+                text-align: center;
+
+            }
+
+            .user-image img {
+                border-radius: 50%;
+                height: 90px;
+                width: 90px;
+                object-fit: cover;
+            }
         }
     </style>
+
 </head>
 
 <body>
@@ -152,6 +241,7 @@
             <div class="user-profile-card">
                 <div id="AllUserData" class="user-data-row">
 
+
                     <!-- user-image -->
                     <div id="user-image-profile" class="user-image">
                         <img id="user-img" src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg"
@@ -161,12 +251,11 @@
 
                     <!-- user-info -->
                     <div class="user-text-info">
-                        <h5 id="user-email">yarob.hm@gmail.com</h5>
-                        <h5 id="user-username">Yarob</h5>
-                        <h5 id="name">Yarob99</h5>
+                        <h5 id="user-email" style="margin: 0;">yarob.hm@gmail.com</h5>
+                        <h5 id="user-username" style="margin: 0;">Yarob</h5>
+                        <h5 id="name" style="margin: 0;">Yarob99</h5>
                     </div>
                     <!-- //user-info// -->
-
                     <!-- Posts&&Comments-count -->
                     <div class="user-posts-comments">
                         <div class="post-count">

@@ -475,21 +475,17 @@ hr {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-#login-btn:hover {
+#login-btn:hover,
+#signup-btn:hover,
+#logout-btn:hover {
     background-color: #0056b3;
-    /* لون أغمق عند التحويم */
     transform: scale(1.1);
-    /* تكبير الزر قليلاً */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     color: #fff;
 }
 
-#signup-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    color: #fff;
-}
+
+
 
 
 @media (max-width: 768px) {

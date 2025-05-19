@@ -177,8 +177,6 @@
                         <!-- <li><a onclick="profileClicked()">Profile</a></li> -->
                         <li><a href="/profile">Profile</a></li>
 
-
-
                     </ul>
                 </div>
 
@@ -187,7 +185,12 @@
                     <div class="auth-buttons" id="auth-buttons">
                         <button id="login-btn" onclick="openLoginModal()">Login</button>
                         <button id="signup-btn" onclick="openRegisterModal()">Register</button>
+                        <button id="logout-btn" style="display: none;" onclick="logout()">Logout</button>
                     </div>
+
+
+
+
                 </div>
             </nav>
         </div>
@@ -293,7 +296,37 @@
     </script>
 
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loggedInUser = localStorage.getItem("loggedInUser");
 
+            const loginBtn = document.getElementById("login-btn");
+            const signupBtn = document.getElementById("signup-btn");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            if (loggedInUser) {
+                // المستخدم مسجل دخول
+                loginBtn.style.display = "none";
+                signupBtn.style.display = "none";
+                logoutBtn.style.display = "inline-block";
+            } else {
+                // المستخدم غير مسجل دخول
+                loginBtn.style.display = "inline-block";
+                signupBtn.style.display = "inline-block";
+                logoutBtn.style.display = "none";
+            }
+        });
+
+
+
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            alert("تم تسجيل الخروج بنجاح");
+            location.reload(); // لإعادة تحميل الصفحة وتحديث الواجهة
+        }
+
+
+    </script>
 
 
 
