@@ -6,6 +6,30 @@ import os
 # Initialize the Flask app
 app = Flask(__name__)
 
+
+
+
+# الكلاس اللي طلبته
+class Post:
+    def __init__(self, content, author):
+        self.content = content
+        self.author = author
+        self.date = datetime.now().strftime('%d/%m/%Y - %I:%M %p')
+        self.id = None  # راح نحدده بعدين
+
+    def to_dict(self):
+        return {
+            "content": self.content,
+            "author": self.author,
+            "date": self.date,
+            "id": self.id
+        }
+
+
+
+
+
+
 # Route for the home page, rendering posts from a JSON file
 @app.route('/')
 def home():
@@ -122,7 +146,7 @@ def login():
 
     return jsonify({'status': 'fail', 'message': 'اسم المستخدم أو كلمة المرور غير صحيحة'})  
 
-# Run the Flask application in debug mode
+# Run the Flask application in debug mode   
 @app.route('/profile')
 def profile():
     return render_template('profile.html')

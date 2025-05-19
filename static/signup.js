@@ -26,6 +26,9 @@ signupForm.addEventListener("submit", function (e) {
         .then(data => {
             // Check if the signup was successful
             if (data.status === "success") {
+                document.getElementById('email-username').value = '';
+                document.getElementById('signup-username').value = '';
+                document.getElementById('signup-password').value = '';
                 alert("تم التسجيل بنجاح!");
                 toggleSignModal();
             } else {

@@ -17,13 +17,10 @@ body {
     padding: 1rem;
 }
 
-
-
 /*=======
  top nanv
  ========
 */
-
 .navbar {
     background-color: #f8f9fa;
     width: 100%;
@@ -158,8 +155,6 @@ body {
     border-radius: 50%;
     border: 2px solid #ccc;
 }
-
-
 
 
 

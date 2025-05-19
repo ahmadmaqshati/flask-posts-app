@@ -12,38 +12,6 @@
 <body>
 
     <!-- LOGIN MODAL -->
-    <!--  <div class="modal-overlay" id="modal">
-
-        <div class="background-overlay" onclick="toggleModal()"></div>
-
-        <div class="modal-container">
-            <h2 class="modal-title">Login</h2>
-
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">UserName :</label>
-                    <input type="text" id="username" name="username" />
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password :</label>
-                    <input type="password" id="password" name="password" />
-                </div>
-
-                <button type="submit" class="btn">Login</button>
-
-            </form>
-
-            <div class="close-btn" onclick="toggleModal()">Close</div>
-        </div>
-    </div> -->
-
-
-
-
-
-
-    <!-- LOGIN MODAL -->
     <div class="modal-overlay" id="modal">
         <div class="background-overlay" onclick="toggleModal()"></div>
 
@@ -67,7 +35,6 @@
             <div class="close-btn" onclick="toggleModal()">Close</div>
         </div>
     </div>
-
     <!--// LOGIN MODAL //-->
 
     <!-- Sign up MODAL -->
@@ -85,18 +52,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Name :</label>
-                    <input type="email" name="name" />
+                    <label>Email :</label>
+                    <input type="email" id="email-username" name="name" />
                 </div>
 
                 <div class="form-group">
                     <label>UserName :</label>
-                    <input type="text" name="usernameInput" />
+                    <input type="text" id="signup-username" name="usernameInput" />
                 </div>
 
                 <div class="form-group">
                     <label>Password :</label>
-                    <input type="password" name="passwordInput" />
+                    <input type="password" id="signup-password" name="passwordInput" />
                 </div>
 
                 <button class="btn">Signup</button>
@@ -173,8 +140,7 @@
                 <div class="navbar-left">
                     <a href="home.html" class="navbar-brand">Tarmeez</a>
                     <ul class="navbar-links">
-                        <li><a href="home.html" class="active">Home</a></li>
-                        <!-- <li><a onclick="profileClicked()">Profile</a></li> -->
+                        <!--  <li><a href="/home" class="active">Home</a></li> -->
                         <li><a href="/profile">Profile</a></li>
 
                     </ul>
@@ -187,8 +153,6 @@
                         <button id="signup-btn" onclick="openRegisterModal()">Register</button>
                         <button id="logout-btn" style="display: none;" onclick="logout()">Logout</button>
                     </div>
-
-
 
 
                 </div>
@@ -206,80 +170,85 @@
     </div>
 
     <script>
-        const loggedInUser = localStorage.getItem("loggedInUser");
+        document.addEventListener("DOMContentLoaded", () => {
+            const loggedInUser = localStorage.getItem("loggedInUser");
 
-        // إخفاء زر الإضافة إذا لم يكن المستخدم مسجلاً الدخول
-        if (!loggedInUser) {
-            document.getElementById("add-btn").style.display = "none";
-        }
+            const loginBtn = document.getElementById("login-btn");
+            const signupBtn = document.getElementById("signup-btn");
+            const logoutBtn = document.getElementById("logout-btn");
+            const addBtn = document.getElementById("add-btn").style.display
+            if (!loggedInUser) {
+                document.getElementById("add-btn").style.display = "none";
+            }
 
+            if (loggedInUser) {
+                loginBtn.style.display = "none";
+                signupBtn.style.display = "none";
+                logoutBtn.style.display = "block";
 
+            } else {
+                loginBtn.style.display = "block";
+                signupBtn.style.display = "block";
+                logoutBtn.style.display = "none";
 
-        fetch('/posts')
-            .then(response => response.json())
-            .then(posts => {
-                const container = document.getElementById('posts-container');
+            }
 
-                posts.forEach(post => {
-                    const postCard = document.createElement('div');
-                    postCard.className = 'post-card';
-                    postCard.id = `post-${post.id}`; // ✅ تم إضافة ID لكل منشور
+            fetch('/posts')
+                .then(response => response.json())
+                .then(posts => {
+                    const container = document.getElementById('posts-container');
 
+                    posts.forEach(post => {
+                        const postCard = document.createElement('div');
+                        postCard.className = 'post-card';
+                        postCard.id = `post-${post.id}`;
 
-                    // استخراج اسم المستخدم الحالي (إن وجد)
-                    let currentUsername = null;
-                    if (loggedInUser) {
-                        currentUsername = JSON.parse(loggedInUser).username;
-                    }
+                        let currentUsername = null;
+                        if (loggedInUser) {
+                            currentUsername = JSON.parse(loggedInUser).username;
+                        }
 
-                    // السماح بالتعديل فقط إذا المستخدم مسجّل دخوله وهو صاحب المنشور
-                    const canEdit = currentUsername && (currentUsername === post.username);
+                        const canEdit = currentUsername;
 
+                        postCard.innerHTML = `
+                            <div class="post-header">
+                                <img class="profile-img" src="${post.user_image}" alt="">
+                                <b>@${post.username}</b>
+                                <div class='delete-edit-btns'>
+                                    ${canEdit ? `
+                                        <button class="edit-post">Edit</button>
+                                        <button class="delete-post" onclick='openModal(${post.id}, "${post.title}")'>Delete</button>
+                                    ` : ""}
+                                </div>
+                            </div>
+                            <div class="post-body">
+                                <img class="post-img" src="${post.image}" alt="">
+                                <div class="post-date">
+                                    <h6 class="post-time">${post.date}</h6>
+                                </div>
+                                <h5 class="post-title">${post.title}</h5>
+                                <p class="post-text">${post.body}</p>
+                                <hr>
+                                <div class="post-footer">
+                                    <span>(${post.comments_count}) Comments</span>
+                                </div>
+                            </div>
+                        `;
 
-
-
-
-
-                    /*  // فقط أظهر أزرار التعديل والحذف إذا كان المستخدم هو صاحب المنشور
-                     const user = JSON.parse(loggedInUser || '{}');
-                     const canEdit = user.username === post.username; */
-
-
-
-                    postCard.innerHTML = `
-    <div class="post-header">
-        <img class="profile-img" src="${post.user_image}" alt="">
-        <b>@${post.username}</b>
-       <div class='delete-edit-btns'>
-        ${canEdit ? `<button class="edit-post">Edit</button>
-                     <button class="delete-post" onclick='openModal(${post.id}, "${post.title}")'>Delete</button>` : ""}
-    </div>
-    </div>
-    
-    <div class="post-body">
-        <img class="post-img" src="${post.image}" alt="">
-        <div class="post-date">
-            <h6 class="post-time">${post.date}</h6>
-        </div>
-        <h5 class="post-title">${post.title}</h5>
-        <p class="post-text">${post.body}</p>
-        <hr>
-        <div class="post-footer">
-            <span>(${post.comments_count}) Comments</span>
-        </div>
-    </div>
-    `;
-
-                    container.appendChild(postCard);
+                        container.appendChild(postCard);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching posts:", error);
                 });
-            })
-            .catch(error => {
-                console.error("Error fetching posts:", error);
-            });
+        });
+
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            alert("تم تسجيل الخروج بنجاح");
+            location.reload();
+        }
     </script>
-
-
-
 
     <script>
 
@@ -325,7 +294,6 @@
 
     </script>
 
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const loggedInUser = localStorage.getItem("loggedInUser");
@@ -359,21 +327,14 @@
     </script>
 
 
-
-
-
-
     <script src="{{ url_for('static', filename='index.js') }}"></script>
     <script src="{{ url_for('static', filename='delete.js') }}"></script>
     <script src="{{ url_for('static', filename='signup.js') }}"></script>
     <script src="{{ url_for('static', filename='submitPost.js') }}"></script>
     <script src="{{ url_for('static', filename='auth.js') }}"></script>
 
-
-
-
-
-
 </body>
+
+
 
 </html>
