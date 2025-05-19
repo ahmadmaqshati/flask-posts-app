@@ -27,9 +27,6 @@ class Post:
 
 
 
-
-
-
 # Route for the home page, rendering posts from a JSON file
 @app.route('/')
 def home():
@@ -150,9 +147,7 @@ def login():
 @app.route('/profile')
 def profile():
     return render_template('profile.html')
-
-
-
+ 
 
 
 if __name__ == '__main__':

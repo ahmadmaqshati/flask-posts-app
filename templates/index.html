@@ -140,7 +140,6 @@
                 <div class="navbar-left">
                     <a href="home.html" class="navbar-brand">Tarmeez</a>
                     <ul class="navbar-links">
-                        <!--  <li><a href="/home" class="active">Home</a></li> -->
                         <li><a href="/profile">Profile</a></li>
 
                     </ul>
@@ -216,7 +215,7 @@
                                 <b>@${post.username}</b>
                                 <div class='delete-edit-btns'>
                                     ${canEdit ? `
-                                        <button class="edit-post">Edit</button>
+                                      
                                         <button class="delete-post" onclick='openModal(${post.id}, "${post.title}")'>Delete</button>
                                     ` : ""}
                                 </div>
@@ -323,9 +322,7 @@
             location.reload(); // لإعادة تحميل الصفحة وتحديث الواجهة
         }
 
-
     </script>
-
 
     <script src="{{ url_for('static', filename='index.js') }}"></script>
     <script src="{{ url_for('static', filename='delete.js') }}"></script>
@@ -334,7 +331,5 @@
     <script src="{{ url_for('static', filename='auth.js') }}"></script>
 
 </body>
-
-
 
 </html>

@@ -12,7 +12,6 @@ function submitPost() {
         body: body,
         image: image,
         user_image: userImage,
-        /* date: new Date().toLocaleString(), */
         comments_count: 0
     };
 
@@ -25,14 +24,13 @@ function submitPost() {
     })
         .then(response => {
             if (response.ok) {
-                alert("تمت الإضافة بنجاح!");
+                alert("Added successfully!");
                 closeAddModal();
-                location.reload(); // لإعادة تحميل الصفحة وعرض البوست الجديد
+                location.reload();
             } else {
-                alert("حدث خطأ أثناء الإضافة.");
+                alert("An error occurred during the addition.");
             }
         });
 
-    console.log("Post to be added:", newPost);
     closeAddModal();
 }
